@@ -23,9 +23,16 @@ app.MapGet("/api/tickets", () => Results.Ok(listaTickets));
 
 app.MapPost("/api/tickets", (Ticket nuevoTicket) =>
 {
+    // Validación básica: comprobar si los campos obligatorios están vacíos
+    if (string.IsNullOrWhiteSpace(nuevoTicket.Title) || string.IsNullOrWhiteSpace(nuevoTicket.Description))
+    {
+        return Results.BadRequest("El título y la descripción son obligatorios.");
+    }
+
     nuevoTicket.Id = listaTickets.Count > 0 ? listaTickets.Max(t => t.Id) + 1 : 1;
     nuevoTicket.Status = "Abierto";
     listaTickets.Add(nuevoTicket);
+    
     return Results.Created($"/api/tickets/{nuevoTicket.Id}", nuevoTicket);
 });
 
