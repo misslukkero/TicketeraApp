@@ -87,7 +87,13 @@ export default function Home() {
                     <option value="Alta">Alta</option>
                 </select>
 
-                <button type="submit" className="bg-blue-500 text-white p-2 rounded">Crear Ticket</button>
+                <button 
+                    type="submit" 
+                    disabled={!title.trim() || !desc.trim()}
+                    className={`p-2 rounded text-white ${!title.trim() || !desc.trim() ? 'bg-gray-400' : 'bg-blue-500'}`}            
+                >
+                    Crear Ticket
+                </button>
             </form>
 
             {/* Lista */}
