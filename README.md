@@ -1,8 +1,9 @@
-Ticketera IT - Sistema de Gestión de Incidencias
+# Ticketera IT - Sistema de Gestión de Incidencias
 
-Español | English | Italiano
+### Español | English | Italiano
 
-🇪🇸 Español
+<details>
+<summary>🇪🇸 Leer en Español</summary>
 
 Ticketera IT es un proyecto Full Stack diseñado para la gestión eficiente de tickets de soporte técnico. La aplicación permite crear, visualizar, resolver y eliminar incidencias, implementando una arquitectura RESTful entre un Backend en .NET y un Frontend moderno en Next.js.
 
@@ -31,8 +32,10 @@ Ticketera IT es un proyecto Full Stack diseñado para la gestión eficiente de t
     Crear un archivo .env.local en la carpeta frontend y añadir: NEXT_PUBLIC_API_URL=TU_URL_AQUI
 
     Iniciar el Backend (.NET) y el Frontend: npm run dev
+</details>
 
-🇬🇧 English
+<details>
+<summary>🇺🇸 Read in English</summary>
 
 Ticketera IT is a Full Stack project designed for efficient support ticket management. It allows users to create, view, resolve, and delete incidents, using a RESTful architecture between a .NET Backend and a modern Next.js Frontend.
 
@@ -61,8 +64,10 @@ Ticketera IT is a Full Stack project designed for efficient support ticket manag
     Create a .env.local file in the frontend folder and add: NEXT_PUBLIC_API_URL=YOUR_URL_HERE
 
     Run the Backend (.NET) and the Frontend: npm run dev
+</details>
 
-🇮🇹 Italiano
+<details>
+<summary>🇮🇹 Leggi in Italiano</summary>
 
 Ticketera IT è un progetto Full Stack progettato per la gestione efficiente dei ticket di assistenza tecnica. L'applicazione consente di creare, visualizzare, risolvere ed eliminare ticket, implementando un'architettura RESTful tra un Backend .NET e un Frontend moderno in Next.js.
 
@@ -93,3 +98,9 @@ Ticketera IT è un progetto Full Stack progettato per la gestione efficiente dei
     Avviare il Backend (.NET) e il Frontend: npm run dev
 
   
+</details>
+
+---
+
+
+
