@@ -1,14 +1,11 @@
 var builder = WebApplication.CreateBuilder(args);
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", policy =>
     {
-        policy.WithOrigins(
-                "http://localhost:3000", 
-                "https://ticketera-app-vercel.app",
-                "https://ticketera-jjryxptnc-daianasenese-4058s-projects.vercel.app" 
-              ) 
+        policy.SetIsOriginAllowed(origin => 
+                origin.EndsWith(".vercel.app") || 
+                origin == "http://localhost:3000")
               .AllowAnyMethod()
               .AllowAnyHeader();
     });
