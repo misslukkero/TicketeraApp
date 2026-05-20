@@ -72,63 +72,65 @@ export default function Home() {
             console.error("Error de red:", error);
         }
     };
-    return (
-        <main className="p-10">
-            <h1 className="text-2xl font-bold mb-5">Ticketera IT - Gestion de incidencias</h1>
+return (
+        <main className="min-h-screen bg-slate-900 p-8 text-white">
+            <h1 className="text-3xl font-bold mb-8 text-blue-400">Ticketera IT</h1>
 
-            {/* Formulario */}
-            <form onSubmit={handleSubmit} className="mb-10 p-4 border rounded">
-                <input className="border p-2 mr-2" placeholder="Título" value={title} onChange={(e) => setTitle(e.target.value)} />
-                <input className="border p-2 mr-2" placeholder="Descripción" value={desc} onChange={(e) => setDesc(e.target.value)} />
+            {/* Layout principal: Grid de 3 columnas */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                {/* Panel Izquierdo: Formulario */}
+                <div className="lg:col-span-1">
+                    <form onSubmit={handleSubmit} className="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl sticky top-8">
+                        <h2 className="text-xl font-semibold mb-4 text-white">Crear Ticket</h2>
+                        <input className="w-full bg-slate-700 border-none p-3 mb-4 rounded text-white" placeholder="Título" value={title} onChange={(e) => setTitle(e.target.value)} />
+                        <textarea className="w-full bg-slate-700 border-none p-3 mb-4 rounded text-white h-24" placeholder="Descripción" value={desc} onChange={(e) => setDesc(e.target.value)} />
 
-                <select className="border p-2 mr-2" value={priority} onChange={(e) => setPriority(e.target.value)}>
-                    <option value="Baja">Baja</option>
-                    <option value="Media">Media</option>
-                    <option value="Alta">Alta</option>
-                </select>
+                        <select className="w-full bg-slate-700 border-none p-3 mb-6 rounded text-white" value={priority} onChange={(e) => setPriority(e.target.value)}>
+                            <option value="Baja">Prioridad: Baja</option>
+                            <option value="Media">Prioridad: Media</option>
+                            <option value="Alta">Prioridad: Alta</option>
+                        </select>
 
-                <button 
-                    type="submit" 
-                    disabled={!title.trim() || !desc.trim()}
-                    className={`p-2 rounded text-white ${!title.trim() || !desc.trim() ? 'bg-gray-400' : 'bg-blue-500'}`}            
-                >
-                    Crear Ticket
-                </button>
-            </form>
-
-            {/* Lista */}
-            <div className="grid gap-4">
-                {tickets.map((t: any) => (
-                    <div key={t.id} className="border p-4 rounded shadow-sm flex justify-between items-center">
-                        <div>
-                            <h2 className="font-bold">{t.title}</h2>
-                            <p>{t.description}</p>
-                            <p className="text-sm text-gray-500 mt-1">Prioridad: {t.priority}</p>
-                            <span className={`text-sm px-2 py-1 rounded font-semibold ${t.status === 'Resuelto'
-                                    ? 'bg-green-600 text-white' // Fondo verde oscuro, texto blanco
-                                    : 'bg-blue-100 text-blue-800' // Fondo azul claro, texto azul oscuro
-                                }`}>
-                                Estado: {t.status}
-                            </span>
-                        </div>
-
-                        {t.status !== 'Resuelto' && (
-                            <button
-                                onClick={() => resolverTicket(t.id)}
-                                className="bg-green-500 text-white p-2 rounded ml-4"
-                            >
-                                Resolver
-                            </button>
-                        )}
-                        <button
-                            onClick={() => eliminarTicket(t.id)}
-                            className="bg-red-500 text-white p-2 rounded ml-2 hover:bg-red-600"
+                        <button 
+                            type="submit" 
+                            disabled={!title.trim() || !desc.trim()}
+                            className={`w-full p-3 rounded font-bold transition ${!title.trim() || !desc.trim() ? 'bg-slate-600 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-500'}`}
                         >
-                            Borrar
+                            Crear Ticket
                         </button>
-                    </div>
-                ))}
+                    </form>
+                </div>
+
+                {/* Panel Derecho: Lista de Tickets */}
+                <div className="lg:col-span-2 space-y-4">
+                    {tickets.map((t: any) => (
+                        <div key={t.id} className="bg-slate-800 p-5 rounded-lg border border-slate-700 flex justify-between items-center hover:border-blue-500/50 transition">
+                            <div className="flex-1">
+                                <h2 className="font-bold text-lg">{t.title}</h2>
+                                <p className="text-slate-400 text-sm mb-2">{t.description}</p>
+                                <div className="flex gap-2">
+                                    <span className="text-xs bg-slate-700 px-2 py-1 rounded text-slate-300">Prioridad: {t.priority}</span>
+                                    <span className={`text-xs px-2 py-1 rounded font-bold ${t.status === 'Resuelto' ? 'bg-green-900/50 text-green-400' : 'bg-blue-900/50 text-blue-400'}`}>
+                                        {t.status}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div className="flex gap-2 ml-4">
+                                {t.status !== 'Resuelto' && (
+                                    <button onClick={() => resolverTicket(t.id)} className="text-xs bg-green-600 hover:bg-green-700 px-3 py-2 rounded font-bold">
+                                        Resolver
+                                    </button>
+                                )}
+                                <button onClick={() => eliminarTicket(t.id)} className="text-xs bg-red-600 hover:bg-red-700 px-3 py-2 rounded font-bold">
+                                    Borrar
+                                </button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
         </main>
-    );  
+    );
 }
