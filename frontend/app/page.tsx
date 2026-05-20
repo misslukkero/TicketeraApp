@@ -16,16 +16,32 @@ export default function Home() {
     useEffect(() => {
         fetchTickets();
     }, []);
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/tickets`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ title, description: desc, priority }),
-        });
-        setTitle(""); setDesc(""); setPriority("Media");
+   const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Validación extra en el cliente (para no hacer la llamada si ya está vacío)
+    if (!title.trim() || !desc.trim()) {
+        alert("Por favor, rellena el título y la descripción.");
+        return;
+    }
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/tickets`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, description: desc, priority }),
+    });
+
+    if (res.ok) {
+        setTitle(""); 
+        setDesc(""); 
+        setPriority("Media");
         fetchTickets();
-    };
+    } else {
+        // Aquí capturo el error que viene del backend en C#
+        const errorMessage = await res.text();
+        alert(errorMessage || "Error al crear el ticket");
+    }
+};
 
     const resolverTicket = async (id: number) => {
         await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/tickets/${id}/resolver`, {
