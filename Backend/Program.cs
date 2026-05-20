@@ -4,12 +4,15 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", policy =>
     {
-        policy.WithOrigins("http://localhost:3000", "https://api-ticketera-daiana.azurewebsites.net") 
+        policy.WithOrigins(
+                "http://localhost:3000", 
+                "https://ticketera-app-vercel.app",
+                "https://ticketera-jjryxptnc-daianasenese-4058s-projects.vercel.app" // Agregamos la URL que sale en tu consola
+              ) 
               .AllowAnyMethod()
               .AllowAnyHeader();
     });
 });
-
 var app = builder.Build();
 app.UseCors("CorsPolicy");
 
