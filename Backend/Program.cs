@@ -1,28 +1,24 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. CONFIGURACIÓN ÚNICA DE CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", policy =>
     {
-        policy.WithOrigins("http://localhost:3000", "https://ticketera-app-vercel.app") 
+        policy.WithOrigins("http://localhost:3000", "https://api-ticketera-daiana.azurewebsites.net") 
               .AllowAnyMethod()
               .AllowAnyHeader();
     });
 });
 
 var app = builder.Build();
-
-// 2. ACTIVAR CORS 
 app.UseCors("CorsPolicy");
 
-// 3. BASE DE DATOS EN MEMORIA
+// Uso una lista de objetos clase para poder modificar sus propiedades
 var listaTickets = new List<Ticket>
 {
-    new Ticket { Id = 1, Title = "Falla de acceso a SharePoint", Description = "Usuario informa error.", Priority = "Alta", Status = "Abierto" }
+    new Ticket { Id = 1, Title = "Falla SharePoint", Description = "Error permisos", Priority = "Alta", Status = "Abierto" }
 };
 
-// 4. ENDPOINTS
 app.MapGet("/api/tickets", () => Results.Ok(listaTickets));
 
 app.MapPost("/api/tickets", (Ticket nuevoTicket) =>
@@ -36,7 +32,11 @@ app.MapPost("/api/tickets", (Ticket nuevoTicket) =>
 app.MapPut("/api/tickets/{id}/resolver", (int id) =>
 {
     var ticket = listaTickets.FirstOrDefault(t => t.Id == id);
-    return ticket is null ? Results.NotFound() : Results.Ok(ticket with { Status = "Resuelto" });
+    if (ticket is null) return Results.NotFound();
+    
+    // Ahora que Ticket es una clase:
+    ticket.Status = "Resuelto"; 
+    return Results.Ok(ticket);
 });
 
 app.MapDelete("/api/tickets/{id}", (int id) =>
@@ -49,4 +49,12 @@ app.MapDelete("/api/tickets/{id}", (int id) =>
 
 app.Run();
 
-public record Ticket(int Id, string Title, string Description, string Priority, string Status);
+// Definir Ticket como clase para permitir modificaciones (mutabilidad)
+public class Ticket
+{
+    public int Id { get; set; }
+    public string Title { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
+    public string Priority { get; set; } = "Media";
+    public string Status { get; set; } = "Abierto";
+}
