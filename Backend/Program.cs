@@ -7,7 +7,7 @@ builder.Services.AddCors(options =>
         policy.WithOrigins(
                 "http://localhost:3000", 
                 "https://ticketera-app-vercel.app",
-                "https://ticketera-jjryxptnc-daianasenese-4058s-projects.vercel.app" // Agregamos la URL que sale en tu consola
+                "https://ticketera-jjryxptnc-daianasenese-4058s-projects.vercel.app" 
               ) 
               .AllowAnyMethod()
               .AllowAnyHeader();
