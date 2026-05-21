@@ -74,7 +74,7 @@ export default function Home() {
     };
 return (
         <main className="min-h-screen bg-slate-900 p-8 text-white">
-            <h1 className="text-3xl font-bold mb-8 text-blue-400">Ticketera IT</h1>
+            <h1 className="text-3xl font-bold mb-8 text-blue-400">Ticketera IT - Gestion de Incidentes</h1>
 
             {/* Layout principal: Grid de 3 columnas */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
