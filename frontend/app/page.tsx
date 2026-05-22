@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useI18n } from "@/frontend/i18n"; 
+import { useI18n } from "../i18n"; 
 
 export default function Home() {
     const { t } = useI18n(); 
