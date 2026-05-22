@@ -1,5 +1,6 @@
 # Ticketera IT - Sistema de Gestión de Incidencias
 
+
 ### Español | English | Italiano
 
 <details>
@@ -137,6 +138,6 @@ Ticketera IT è un progetto Full Stack progettato per la gestione efficiente dei
 </details>
 
 ---
-
+<img src="Assets/Ticketera.png" alt="Ticketera IT" style="border: 2px solid #334155; border-radius: 8px;">
 
 
