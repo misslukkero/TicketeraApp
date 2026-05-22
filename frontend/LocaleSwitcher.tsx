@@ -1,5 +1,5 @@
 "use client";
-import { useI18n, localeNames, Locale } from "../i18n";
+import { useI18n, localeNames, Locale } from "./i18n";
 
 export default function LocaleSwitcher() {
   const { locale, setLocale } = useI18n();
