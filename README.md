@@ -13,7 +13,9 @@ Ticketera IT es un proyecto Full Stack diseñado para la gestión eficiente de t
 
     Frontend: Next.js (React), TypeScript, Tailwind CSS.
 
-    Arquitectura: RESTful API.
+    Estado: Context API (i18n, gestión de tickets).
+
+    Despliegue: Vercel (CI/CD).
 
 📋 Características
 
@@ -25,6 +27,8 @@ Ticketera IT es un proyecto Full Stack diseñado para la gestión eficiente de t
 
     Configuración segura: Gestión de rutas de API mediante variables de entorno (.env.local).
 
+    Internacionalización (i18n): Soporte multi-idioma (ES/EN) implementado mediante un I18nProvider personalizado con persistencia en localStorage, permitiendo una experiencia de usuario globalizada.
+
 🛠️ Instalación y ejecución
 
     Clonar el repositorio: git clone https://github.com/misslukkero/TicketeraApp.git
@@ -32,6 +36,16 @@ Ticketera IT es un proyecto Full Stack diseñado para la gestión eficiente de t
     Crear un archivo .env.local en la carpeta frontend y añadir: NEXT_PUBLIC_API_URL=TU_URL_AQUI
 
     Iniciar el Backend (.NET) y el Frontend: npm run dev
+
+    Aprendizajes y Desafíos
+
+💡 Aprendizajes y Desafíos
+    
+    Integración CI/CD: Resolución de errores de compilación en Vercel ajustando rutas de módulos y configurando variables de entorno en entornos de producción.
+
+    Arquitectura de Componentes: Implementación de I18nProvider para asegurar la correcta propagación de estados globales y evitar errores de prerenderizado en Next.js.
+
+    Consumo de API: Manejo de asincronía y respuestas del backend con validación en tiempo real.
 </details>
 
 <details>
@@ -45,7 +59,9 @@ Ticketera IT is a Full Stack project designed for efficient support ticket manag
 
     Frontend: Next.js (React), TypeScript, Tailwind CSS.
 
-    Architecture: RESTful API.
+    State Management: Context API (i18n, ticket management).
+
+    Deployment: Vercel (CI/CD).
 
 📋 Features
 
@@ -53,17 +69,27 @@ Ticketera IT is a Full Stack project designed for efficient support ticket manag
 
     Dynamic Interface: Real-time state updates with React.
 
-    Improved UX: Critical action validation via user confirmations.
+    Enhanced UX: Critical action validation using confirmations.
 
-    Secure Configuration: API path management using environment variables (.env.local).
+    Secure Configuration: API route management via environment variables (.env.local).
 
-🛠️ Installation and Setup
+    Internationalization (i18n): Multi-language support (ES/EN) implemented via a custom I18nProvider with localStorage persistence, enabling a globalized user experience.
+
+🛠️ Installation and Execution
 
     Clone the repository: git clone https://github.com/misslukkero/TicketeraApp.git
 
-    Create a .env.local file in the frontend folder and add: NEXT_PUBLIC_API_URL=YOUR_URL_HERE
+    Create an .env.local file in the frontend folder and add: NEXT_PUBLIC_API_URL=YOUR_URL_HERE
 
-    Run the Backend (.NET) and the Frontend: npm run dev
+    Start the Backend (.NET) and Frontend: npm run dev
+
+💡 Learnings and Challenges
+
+    CI/CD Integration: Resolved Vercel build errors by adjusting module paths and configuring production environment variables.
+
+    Component Architecture: Implemented I18nProvider to ensure correct global state propagation and prevent Next.js pre-rendering errors.
+
+    API Consumption: Managed asynchronous data and backend responses with real-time validation.
 </details>
 
 <details>
@@ -77,27 +103,37 @@ Ticketera IT è un progetto Full Stack progettato per la gestione efficiente dei
 
     Frontend: Next.js (React), TypeScript, Tailwind CSS.
 
-    Architettura: RESTful API.
+    Gestione Stato: Context API (i18n, gestione ticket).
+
+    Deployment: Vercel (CI/CD).
 
 📋 Caratteristiche
 
-    CRUD completo: Operazioni di creazione, lettura, aggiornamento ed eliminazione.
+    CRUD Completo: Operazioni di creazione, lettura, aggiornamento e cancellazione.
 
-    Interfaccia dinamica: Aggiornamento degli stati in tempo reale con React.
+    Interfaccia Dinamica: Aggiornamento dello stato in tempo reale con React.
 
-    UX Migliorata: Validazione delle azioni critiche tramite conferma utente.
+    UX Migliorata: Validazione delle azioni critiche tramite conferme.
 
-    Configurazione sicura: Gestione dei percorsi API tramite variabili d'ambiente (.env.local).
+    Configurazione Sicura: Gestione dei percorsi API tramite variabili d'ambiente (.env.local).
+
+    Internazionalizzazione (i18n): Supporto multi-lingua (ES/EN) implementato tramite un I18nProvider personalizzato con persistenza in localStorage, per un'esperienza utente globalizzata.
 
 🛠️ Installazione ed esecuzione
 
     Clonare il repository: git clone https://github.com/misslukkero/TicketeraApp.git
-    
+
     Creare un file .env.local nella cartella frontend e aggiungere: NEXT_PUBLIC_API_URL=TUA_URL_QUI
-    
+
     Avviare il Backend (.NET) e il Frontend: npm run dev
 
-  
+💡 Apprendimenti e Sfide
+
+    Integrazione CI/CD: Risoluzione degli errori di build su Vercel aggiustando i percorsi dei moduli e configurando le variabili d'ambiente in produzione.
+
+    Architettura dei Componenti: Implementazione di I18nProvider per garantire la corretta propagazione dello stato globale ed evitare errori di pre-rendering in Next.js.
+
+    Consumo API: Gestione dell'asincronia e delle risposte del backend con validazione in tempo reale.
 </details>
 
 ---
