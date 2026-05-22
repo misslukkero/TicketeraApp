@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useI18n } from "../i18n"; 
+import LocaleSwitcher from "../LocaleSwitcher";
 
 export default function Home() {
     const { t } = useI18n(); 
@@ -80,7 +81,7 @@ export default function Home() {
     return (
         <main className="min-h-screen bg-slate-900 p-8 text-white">
             <h1 className="text-3xl font-bold mb-8 text-blue-400">{t.ticketera.title}</h1>
-
+                <LocaleSwitcher />
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-1">
                     <form onSubmit={handleSubmit} className="bg-slate-800 p-6 rounded-xl border border-slate-700 shadow-xl sticky top-8">
